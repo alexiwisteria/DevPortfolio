@@ -1,24 +1,24 @@
 import "../global.css";
-import { Inter } from "@next/font/google";
-import LocalFont from "@next/font/local";
+import { DM_Mono } from "@next/font/google";
 import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
+import React from "react";
 
 export const metadata: Metadata = {
   title: {
-    default: "chronark.com",
-    template: "%s | chronark.com",
+    default: "Alex Lee Dev Archives",
+    template: "",
   },
-  description: "Co-founder of unkey.dev and founder of planetfall.io",
+  description: "A portfolio of software engineering projects, AI research, and data architecture. " +
+      "Showcasing full-stack development, coding best practices, and scalable data engineering solutions.",
   openGraph: {
-    title: "chronark.com",
-    description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
-    url: "https://chronark.com",
-    siteName: "chronark.com",
+    title: "Alex Lee Dev Archives",
+    description: "A portfolio of software engineering projects, AI research, and data architecture. Showcasing full-stack development, coding best practices, and scalable data engineering solutions.",
+    url: "https://alexiwisteria.dev",
+    siteName: "alexiwisteria.dev",
     images: [
       {
-        url: "https://chronark.com/og.png",
+        url: "https://alexiwisteria.dev/og.png", 
         width: 1920,
         height: 1080,
       },
@@ -45,32 +45,31 @@ export const metadata: Metadata = {
     shortcut: "/favicon.png",
   },
 };
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
 
-const calSans = LocalFont({
-  src: "../public/fonts/CalSans-SemiBold.ttf",
-  variable: "--font-calsans",
+// Import and apply Space Mono globally
+const dmMono = DM_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
 });
 
 export default function RootLayout({
-  children,
-}: {
+                                     children,
+                                   }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
+      <html lang="en" className={dmMono.variable}>
       <head>
         <Analytics />
       </head>
       <body
-        className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
+          className={`bg-black ${dmMono.className} ${
+              process.env.NODE_ENV === "development" ? "debug-screens" : ""
           }`}
       >
-        {children}
+      {children}
       </body>
-    </html>
+      </html>
   );
 }

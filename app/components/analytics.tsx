@@ -8,8 +8,9 @@ export function Analytics() {
 	return (
 		<script
 			src="https://beamanalytics.b-cdn.net/beam.min.js"
-			data-token={token}
+			data-token="BEAM_ANALYTICS_TOKEN"
 			async
-		/>
+		>
+		</script>
 	);
 }

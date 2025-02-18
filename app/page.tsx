@@ -1,51 +1,62 @@
-import Link from "next/link";
-import React from "react";
-import Particles from "./components/particles";
+"use client";
 
-const navigation = [
-  { name: "Projects", href: "/projects" },
-  { name: "Contact", href: "/contact" },
-];
+import Link from "next/link";
+import { motion } from "framer-motion";
+import Particles from "./components/particles";
+import Terminal from "./components/terminal";
 
 export default function Home() {
-  return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
-      <nav className="my-16 animate-fade-in">
-        <ul className="flex items-center justify-center gap-4">
-          {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm duration-500 text-zinc-500 hover:text-zinc-300"
+    return (
+        <div className="w-screen h-screen overflow-y-auto bg-gradient-to-tl from-black via-zinc-600/20 to-black">
+            {/* Full Page Animation */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+                className="flex flex-col items-center justify-start min-h-screen pt-32"
             >
-              {item.name}
-            </Link>
-          ))}
-        </ul>
-      </nav>
-      <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-      <Particles
-        className="absolute inset-0 -z-10 animate-fade-in"
-        quantity={100}
-      />
-      <h1 className="py-3.5 px-0.5 z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
-        chronark
-      </h1>
+                {/* Animated Particles */}
+                <Particles className="absolute inset-0 -z-10" quantity={200} />
 
-      <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-      <div className="my-16 text-center animate-fade-in">
-        <h2 className="text-sm text-zinc-500 ">
-          I'm building{" "}
-          <Link
-            target="_blank"
-            href="https://unkey.dev"
-            className="underline duration-500 hover:text-zinc-300"
-          >
-            unkey.dev
-          </Link> to solve API authentication and authorization for developers.
-        </h2>
-      </div>
-    </div>
-  );
+                {/* Title Section */}
+                <div className="flex flex-col items-center">
+                    <motion.h1
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                        className="py-3.5 px-0.5 z-10 text-4xl text-transparent bg-white cursor-default sm:text-6xl md:text-9xl bg-clip-text"
+                    >
+                        Alexis Lee
+                    </motion.h1>
 
+                    <motion.div
+                        initial={{opacity: 0, y: 20}}
+                        animate={{opacity: 1, y: 0}}
+                        transition={{duration: 1, delay: 0.5}}
+                        className="pt-1 pb-2 text-center"
+                    >
+                        <h2 className="text-md text-zinc-500 mb-2">
+                            Aspiring Data & AI Solutions Architect
+                        </h2>
+                        <h2 className="text-sm text-zinc-500">
+                            Currently refining my database knowledge, leading student projects as a Scrum Master, and
+                            exploring ethical AI integrations.
+                        </h2>
+                    </motion.div>
+                </div>
+
+                {/* Terminal Section */}
+                <motion.div
+                    initial={{opacity: 0, x: 50}}
+                    whileInView={{opacity: 1, x: 0 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    viewport={{ once: true }}
+                    className="w-full px-4 md:px-8 lg:px-12 mt-16"
+                >
+                    <Terminal />
+                </motion.div>
+            </motion.div>
+        </div>
+    );
 }
