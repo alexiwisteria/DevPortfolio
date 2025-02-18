@@ -1,3 +1,96 @@
+# Alex Lee Dev Portfolio
+
+A modern, interactive developer portfolio built with Next.js 13+, featuring a unique terminal-style interface and dynamic animations.
+
+## Features
+
+- Interactive Terminal Interface
+- Particle Animation Background
+- Responsive Design
+- Custom Color Themes
+- ASCII Art Display
+- Project Showcase
+- Interactive Resume
+- Contact Information
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) - React framework
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [Framer Motion](https://www.framer.com/motion/) - Animations
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [DM Mono](https://fonts.google.com/specimen/DM+Mono) - Font
+
+## Running Locally
+
+1. Clone the repository:
+```bash
+git clone [your-repo-url]
+cd [your-repo-name]
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Terminal Commands
+
+- `explore` - View available commands
+- `resume` - View resume
+- `projects` - Browse portfolio projects
+- `contact` - View contact information
+- `fun` - Access interactive features
+- `change color` - Customize terminal colors
+- `clear` - Reset terminal display
+
+## Project Structure
+
+```
+├── app/
+│   ├── components/
+│   │   ├── particles.tsx
+│   │   ├── terminal.tsx
+│   │   └── analytics.tsx
+│   ├── layout.tsx
+│   └── page.tsx
+├── public/
+│   └── favicon.png
+└── global.css
+```
+
+## Customization
+
+To customize the portfolio:
+1. Update personal information in `terminal.tsx`
+2. Modify the resume content in the `resume` array
+3. Add/modify projects in the `projects` object
+4. Update contact information in the contact section
+5. Customize terminal colors in the `colorMap` object
+
+## License
+
+[Your chosen license]
+
+## Contact
+
+Alexis Lee - [alexiseblee@outlook.com](mailto:alexiseblee@outlook.com)
+
 <div align="center">
     <a href="https://chronark.com"><h1 align="center">chronark.com</h1></a>
 
