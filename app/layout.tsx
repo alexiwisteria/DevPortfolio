@@ -6,7 +6,7 @@ import React from "react";
 
 export const metadata: Metadata = {
   title: {
-    default: "Alex Lee Dev Archives",
+    default: "Alex Lee Dev Portfolio",
     template: "",
   },
   description: "A portfolio of software engineering projects, AI research, and data architecture. " +
@@ -14,11 +14,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Alex Lee Dev Archives",
     description: "A portfolio of software engineering projects, AI research, and data architecture. Showcasing full-stack development, coding best practices, and scalable data engineering solutions.",
-    url: "https://alexiwisteria.dev",
+    url: "https://dev-portfolio-git-main-alexiwisterias-projects.vercel.app/ai-grading-project",
     siteName: "alexiwisteria.dev",
     images: [
       {
-        url: "https://alexiwisteria.dev/og.png", 
+        url: "https://dev-portfolio-git-main-alexiwisterias-projects.vercel.app/ai-grading-project", 
         width: 1920,
         height: 1080,
       },
@@ -54,7 +54,7 @@ const dmMono = DM_Mono({
 });
 
 export default function RootLayout({
-                                     children,
+                                    children,
                                    }: {
   children: React.ReactNode;
 }) {

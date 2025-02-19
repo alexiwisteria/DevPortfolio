@@ -345,8 +345,8 @@ const Terminal: React.FC = () => {
             `> ${command}`, 
             ...(Array.isArray(result) ? result : [result]),
             '',
-            <Card key="clear">
-                <button onClick={() => handleCommand('clear')} className="p-4 text-left hover:text-[#F0FFF0]">
+            <Card key={`clear-${prevOutput.length}`}>
+                <button onClick={() => handleCommand('clear')} className="p-4 block w-full text-left hover:text-[#F0FFF0]">
                     'clear' → Reset terminal display
                 </button>
             </Card>
