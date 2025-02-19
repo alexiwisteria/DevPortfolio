@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import Card from './card';
 
 const colorMap: Record<string, string> = {
+    white: 'text-white',
+    red: 'text-red-500',
+    orange: 'text-orange-500',
+    yellow: 'text-yellow-500',
     green: 'text-green-500',
     blue: 'text-blue-500',
-    red: 'text-red-500',
-    yellow: 'text-yellow-500',
     purple: 'text-purple-500'
 };
 
@@ -16,7 +18,7 @@ const jokes: string[] = [
     "Why did the programmer quit his job? He didn't get arrays."
 ];
 
-const asciiArt: string = String.raw`
+const asciiArt: string = `
                        .,,uod8B8bou,,.
               ..,uod8BBBBBBBBBBBBBBBBRPFT?l!i:.
          ,=m8BBBBBBBBBBBBBBBRPFT?!||||||||||||||
@@ -30,7 +32,7 @@ const asciiArt: string = String.raw`
          !.........||||                     ||||
          \`.........||||                    ,||||
           .;.......||||               _.-!!|||||
-   .,uodWBBBBb.....||||       _.-!!|||||||||!:'
+   .,uodWBBBBb.....||||       _.-!!|||||||||!:' 
 !YBBBBBBBBBBBBBBb..!|||:..-!!|||||||!iof68BBBBBb....
 !..YBBBBBBBBBBBBBBb!!||||||||!iof68BBBBBBRPFT?!::   \`.
 !....YBBBBBBBBBBBBBBbaaitf68BBBBBBRPFT?!:::::::::     \`.
@@ -118,7 +120,7 @@ const Terminal: React.FC = () => {
             </button>
         </Card>
     ]);
-    const [color, setColor] = useState<string>('text-white');
+    const [color, setColor] = useState<string>(colorMap.white);
 
     const handleCommand = (command: string) => {
         let result: string | string[] | (string | React.ReactElement)[] = '';
@@ -200,11 +202,19 @@ const Terminal: React.FC = () => {
                     </button>
                 </Card>,
                 <Card>
-                    <a href="/ai-grading-project" className="p-4 block hover:text-[#3CB371]">
-                        <div className="font-bold">AI Autograding</div>
-                        <div className="mt-2">An innovative AI-powered autograding system designed to streamline the assessment process for programming assignments.</div>
-                        <div className="mt-2">Technology Stack: Python, OpenAI API, Next.js</div>
-                    </a>
+                    <button onClick={() => handleCommand('joke')} className="p-4 text-left hover:text-[#3CB371]">
+                        'joke' → Hear a funny joke
+                    </button>
+                </Card>,
+                <Card>
+                    <button onClick={() => handleCommand('ascii art')} className="p-4 text-left hover:text-[#3CB371]">
+                        'ascii art' → See some cool ASCII art
+                    </button> 
+                </Card>,
+                <Card>
+                    <button onClick={() => handleCommand('date')} className="p-4 text-left hover:text-[#3CB371]">
+                        'date' → Display the current date and time
+                    </button>
                 </Card>,
                 ""
             ];
@@ -223,6 +233,48 @@ const Terminal: React.FC = () => {
         } else if (lowerCommand === 'ai autograding') {
             window.location.href = '/ai-grading-project';
             result = [];
+        } else if (lowerCommand === 'ascii art') {
+            result = [
+                '',
+                <pre className="font-mono whitespace-pre">
+                    {asciiArt}
+                </pre>,
+                ''
+            ];
+        } else if (lowerCommand === 'change color') {
+            result = [
+                '',
+                'Choose a color:',
+                '',
+                ...Object.keys(colorMap).map(colorName => (
+                    <Card key={colorName}>
+                        <button 
+                            onClick={() => {
+                                setColor(colorMap[colorName]);
+                                handleCommand(`Color changed to ${colorName}!`);
+                            }} 
+                            className={`p-4 text-left w-full hover:${colorMap[colorName]}`}
+                        >
+                            {colorName.charAt(0).toUpperCase() + colorName.slice(1)}
+                        </button>
+                    </Card>
+                )),
+                ''
+            ];
+        } else if (lowerCommand === 'joke') {
+            const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+            result = [
+                '',
+                randomJoke,
+                ''
+            ];
+        } else if (lowerCommand === 'date') {
+            const now = new Date();
+            result = [
+                '',
+                now.toLocaleString(),
+                ''
+            ];
         } else if (lowerCommand === 'resume') {
             result = [
                 '',
@@ -245,6 +297,16 @@ const Terminal: React.FC = () => {
                 }),
                 ''
             ];
+        } else if (lowerCommand === 'clear') {
+            setOutput([
+                "Welcome to my interactive portfolio terminal.",
+                <Card key="explore">
+                    <button onClick={() => handleCommand('explore')} className="p-4 text-left hover:text-[#3CB371]">
+                        Enter 'explore' to discover available commands
+                    </button>
+                </Card>,
+            ]);
+            return;
         } else {
             result = ['', 'Command not recognized', ''];
         }
@@ -257,7 +319,7 @@ const Terminal: React.FC = () => {
             '',
             <Card key={`clear-${prevOutput.length}`}>
                 <button onClick={() => handleCommand('clear')} className="p-4 block w-full text-left hover:text-[#3CB371]">
-                    'clear' → Reset terminal display
+                    clear
                 </button>
             </Card>
         ]);
