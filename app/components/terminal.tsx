@@ -57,7 +57,7 @@ const projects = {
             "",
             "Documentation:",
             <Card>
-                <a key="ai-autograding" href="/ai-grading-project" className="p-4 block hover:text-[#F0FFF0]">
+                <a key="ai-autograding" href="/ai-grading-project" className="p-4 block hover:text-[#3CB371]">
                     Project Documentation
                 </a>
             </Card>,
@@ -113,12 +113,12 @@ const Terminal: React.FC = () => {
     const [output, setOutput] = useState<(string | React.ReactNode)[]>([
         "Welcome to my interactive portfolio terminal.",
         <Card key="explore">
-            <button onClick={() => handleCommand('explore')} className="p-4 text-left hover:text-[#F0FFF0]">
+            <button onClick={() => handleCommand('explore')} className="p-4 text-left hover:text-[#3CB371]">
                 Enter 'explore' to discover available commands
             </button>
         </Card>
     ]);
-    const [color, setColor] = useState<string>(colorMap.green);
+    const [color, setColor] = useState<string>('text-white');
 
     const handleCommand = (command: string) => {
         let result: string | string[] | (string | React.ReactElement)[] = '';
@@ -129,22 +129,22 @@ const Terminal: React.FC = () => {
                 "Available Commands:",
                 "",
                 <Card>
-                    <button onClick={() => handleCommand('resume')} className="p-4 text-left hover:text-[#F0FFF0]">
+                    <button onClick={() => handleCommand('resume')} className="p-4 text-left hover:text-[#3CB371]">
                         'resume' → View my resume
                     </button>
                 </Card>,
                 <Card>
-                    <button onClick={() => handleCommand('projects')} className="p-4 text-left hover:text-[#F0FFF0]">
+                    <button onClick={() => handleCommand('projects')} className="p-4 text-left hover:text-[#3CB371]">
                         'projects' → Browse portfolio projects
                     </button>
                 </Card>,
                 <Card>
-                    <button onClick={() => handleCommand('contact')} className="p-4 text-left hover:text-[#F0FFF0]">
+                    <button onClick={() => handleCommand('contact')} className="p-4 text-left hover:text-[#3CB371]">
                         'contact' → View contact information
                     </button>
                 </Card>,
                 <Card>
-                    <button onClick={() => handleCommand('fun')} className="p-4 text-left hover:text-[#F0FFF0]">
+                    <button onClick={() => handleCommand('fun')} className="p-4 text-left hover:text-[#3CB371]">
                         'fun' → Interactive features
                     </button>
                 </Card>,
@@ -155,14 +155,14 @@ const Terminal: React.FC = () => {
                 '',
                 <Card>
                     <div className="flex justify-between items-center p-4 group">
-                        <a href="mailto:alexiseblee@outlook.com" className="hover:text-[#F0FFF0]">
+                        <a href="mailto:alexiseblee@outlook.com" className="hover:text-[#3CB371]">
                             Email: alexiseblee@outlook.com
                         </a>
                         <button 
                             onClick={() => {
                                 navigator.clipboard.writeText('alexiseblee@outlook.com');
                             }}
-                            className="opacity-0 group-hover:opacity-100 hover:text-[#F0FFF0] transition-opacity"
+                            className="opacity-0 group-hover:opacity-100 hover:text-[#3CB371] transition-opacity"
                             aria-label="Copy email"
                         >
                             <svg 
@@ -183,136 +183,46 @@ const Terminal: React.FC = () => {
                     </div>
                 </Card>,
                 <Card>
-                    <a href="https://www.linkedin.com/in/alexisbinchlee/" target="_blank" rel="noopener noreferrer" className="hover:text-[#F0FFF0] p-4 block">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/alexisbinchlee/" target="_blank" rel="noopener noreferrer" className="hover:text-[#3CB371] p-4 block">LinkedIn</a>
                 </Card>,
                 <Card>
-                    <a href="https://github.com/alexiwisteria" target="_blank" rel="noopener noreferrer" className="hover:text-[#F0FFF0] p-4 block">GitHub</a>
+                    <a href="https://github.com/alexiwisteria" target="_blank" rel="noopener noreferrer" className="hover:text-[#3CB371] p-4 block">GitHub</a>
                 </Card>,
                 ''
             ];
-        } else if (lowerCommand === 'fun') { 
+        } else if (lowerCommand === 'fun') {
             result = [
                 "Interactive Features:",
                 "",
                 <Card>
-                    <button onClick={() => handleCommand('change color')} className="p-4 text-left hover:text-[#F0FFF0]">
+                    <button onClick={() => handleCommand('change color')} className="p-4 text-left hover:text-[#3CB371]">
                         'change color' → Customize interface colors
                     </button>
                 </Card>,
                 <Card>
-                    <button onClick={() => handleCommand('joke')} className="p-4 text-left hover:text-[#F0FFF0]">
-                        'joke' → Programming humor
-                    </button>
-                </Card>,
-                <Card>
-                    <button onClick={() => handleCommand('art')} className="p-4 text-left hover:text-[#F0FFF0]">
-                        'art' → Display ASCII artwork
-                    </button>
-                </Card>,
-                <Card>
-                    <button onClick={() => handleCommand('date')} className="p-4 text-left hover:text-[#F0FFF0]">
-                        'date' → Shows the current date and time
-                    </button>
+                    <a href="/ai-grading-project" className="p-4 block hover:text-[#3CB371]">
+                        <div className="font-bold">AI Autograding</div>
+                        <div className="mt-2">An innovative AI-powered autograding system designed to streamline the assessment process for programming assignments.</div>
+                        <div className="mt-2">Technology Stack: Python, OpenAI API, Next.js</div>
+                    </a>
                 </Card>,
                 ""
             ];
-        } else if (lowerCommand === 'change color') {
-            result = [
-                '',
-                <Card>
-                    <button onClick={() => handleCommand('green')} className="p-4 text-left hover:text-[#F0FFF0]">
-                        green
-                    </button>
-                </Card>,
-                <Card>
-                    <button onClick={() => handleCommand('blue')} className="p-4 text-left hover:text-[#F0FFF0]">
-                        blue
-                    </button>
-                </Card>,
-                <Card>
-                    <button onClick={() => handleCommand('red')} className="p-4 text-left hover:text-[#F0FFF0]">
-                        red
-                    </button>
-                </Card>,
-                <Card>
-                    <button onClick={() => handleCommand('yellow')} className="p-4 text-left hover:text-[#F0FFF0]">
-                        yellow
-                    </button>
-                </Card>,
-                <Card>
-                    <button onClick={() => handleCommand('purple')} className="p-4 text-left hover:text-[#F0FFF0]">
-                        purple
-                    </button>
-                </Card>,
-                ''
-            ];
-        } else if (colorMap[lowerCommand]) {
-            setColor(colorMap[lowerCommand]);
-            result = [
-                '', 
-                <Card>
-                    <div className="p-4">Color changed to '{lowerCommand}'</div>
-                </Card>,
-                ''
-            ];
-        } else if (lowerCommand === 'clear') {
-            setOutput([
-                "What can you do here?",
-                <Card key="explore">
-                    <button onClick={() => handleCommand('explore')} className="p-4 text-left hover:text-[#F0FFF0]">
-                        Enter 'explore' to discover available commands
-                    </button>
-                </Card>
-            ]);
-            setInput('');
-            setColor(colorMap.green);
-            return;
-        } else if (lowerCommand === 'joke') {
-            const joke = jokes[Math.floor(Math.random() * jokes.length)];
-            const [question, answer] = joke.split('?');
-            result = [
-                '',
-                <div className="p-4">
-                    <div className="font-bold">Q: {question}?</div>
-                    <div className="mt-2">A: {answer}</div>
-                </div>,
-                ''
-            ];
-        } else if (lowerCommand === 'art') {
-            setOutput((prevOutput) => [
-                ...prevOutput,
-                '',
-                `> ${command}`,
-                '',
-                <pre key={prevOutput.length} className="whitespace-pre text-sm">{asciiArt}</pre>,
-                ''
-            ]);
-            return;
-        } else if (lowerCommand === 'date') {
-            result = ['', new Date().toLocaleString(), ''];
         } else if (lowerCommand === 'projects') {
             result = [
-                "",
-                "Enter a project name to learn more:",
-                "",
-                <div className="py-2 hover:text-[#F0FFF0] cursor-pointer" onClick={() => handleCommand('ai autograding')}>
-                    <Card>
-                        <div className="p-4">AI Autograding</div>
-                    </Card>
-                </div>,
-                ""
-            ];
-        } else if (lowerCommand in projects) {
-            const projectSummary = projects[lowerCommand as keyof typeof projects].summary;
-            result = [
                 '',
-                ...projectSummary.map(item => 
-                    typeof item === 'string' ? 
-                        <div className="py-2 px-4 text-lg">{item}</div> :
-                        <div className="py-2 px-4">{item}</div>
-                ),
+                <Card>
+                    <a href="/ai-grading-project" className="p-4 block hover:text-[#3CB371]">
+                        <div className="font-bold">AI Autograding</div>
+                        <div className="mt-2">An innovative AI-powered autograding system designed to streamline the assessment process for programming assignments.</div>
+                        <div className="mt-2">Technology Stack: Python, OpenAI API, Next.js</div>
+                    </a>
+                </Card>,
                 ''
             ];
+        } else if (lowerCommand === 'ai autograding') {
+            window.location.href = '/ai-grading-project';
+            result = [];
         } else if (lowerCommand === 'resume') {
             result = [
                 '',
@@ -346,7 +256,7 @@ const Terminal: React.FC = () => {
             ...(Array.isArray(result) ? result : [result]),
             '',
             <Card key={`clear-${prevOutput.length}`}>
-                <button onClick={() => handleCommand('clear')} className="p-4 block w-full text-left hover:text-[#F0FFF0]">
+                <button onClick={() => handleCommand('clear')} className="p-4 block w-full text-left hover:text-[#3CB371]">
                     'clear' → Reset terminal display
                 </button>
             </Card>
