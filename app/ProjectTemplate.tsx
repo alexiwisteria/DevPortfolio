@@ -27,6 +27,26 @@ export default function ProjectTemplate({ content }: ProjectTemplateProps) {
 
         <Card className="w-full">
           <div className="p-6 space-y-4">
+            <h2 className="text-2xl font-semibold text-zinc-200">Scrum Master</h2>
+            <div>
+              {content.scrumMaster.name} - <a href={content.scrumMaster.linkedin} className="text-blue-400 hover:text-blue-300">LinkedIn</a>
+            </div>
+          </div>
+        </Card>
+
+        <Card className="w-full">
+          <div className="p-6 space-y-4">
+            <h2 className="text-2xl font-semibold text-zinc-200">Developers</h2>
+            {content.developers.map((developer, index) => (
+              <div key={index}>
+                {developer.name} - <a href={developer.linkedin} className="text-blue-400 hover:text-blue-300">LinkedIn</a>
+              </div>
+            ))}
+          </div>
+        </Card>
+
+        <Card className="w-full">
+          <div className="p-6 space-y-4">
             <h2 className="text-2xl font-semibold text-zinc-200">Project Dates</h2>
             <div>Start Date: {content.dates.start}</div>
             <div>End Date: {content.dates.end}</div>

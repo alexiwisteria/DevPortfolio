@@ -10,6 +10,14 @@ export interface ProjectContent {
     name: string;
     linkedin: string;
   }[];
+  scrumMaster: {
+    name: string;
+    linkedin: string;
+  };
+  developers: {
+    name: string;
+    linkedin: string;
+  }[];
   dates: {
     start: string;
     end: string;

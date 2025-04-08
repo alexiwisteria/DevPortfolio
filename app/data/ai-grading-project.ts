@@ -2,23 +2,31 @@ import { ProjectContent } from '../types/project';
 
 export const aiGradingProject: ProjectContent = {
   projectName: "AI Grading Project - Studio E",
-  projectManagers: [
+  projectManagers: [{
+    name: "Joshua Sivertson",
+    linkedin: "https://www.linkedin.com/in/josh-sivertson-986849225/"
+  }],
+  scrumMaster: {
+    name: "Alexis Lee",
+    linkedin: "https://www.linkedin.com/in/alexisbinchlee/"
+  },
+  developers: [
+    {
+      name: "Alexis Lee",
+      linkedin: "https://www.linkedin.com/in/alexisbinchlee/"
+    },
     {
       name: "Joshua Sivertson",
       linkedin: "https://www.linkedin.com/in/josh-sivertson-986849225/"
     },
     {
-      name: "Miguel Elizalde",
-      linkedin: "https://www.linkedin.com/in/miguelelizaldecruz/"
-    },
-    {
-      name: "Tsogt Enkhbat",
-      linkedin: "https://www.linkedin.com/in/tsogt-enkhbat/"
+      name: "Thayne Peterson",
+      linkedin: "https://www.linkedin.com/in/thomas-peterson-199298296/"
     }
   ],
   dates: {
     start: "January 6, 2025",
-    end: "April 5, 2024"
+    end: "April 7, 2025"
   },
   background: "The AI Grading Assistant project aims to address the challenges of grading assignments in IT and CS classes by creating an automated system. Currently, grades are stored in GitHub, and PyTest is used for automated testing. The goal is to streamline the workflow, ensuring that grades and feedback are efficiently processed and updated in both GitHub and Canvas.",
   objectives: [
@@ -126,6 +134,28 @@ export const aiGradingProject: ProjectContent = {
     }
   ],
   conclusion: {
-    "Anticipated Outcomes": "The AI Grading Assistant will automate assignment grading, reduce teacher workload, and ensure fair, consistent feedback for students. The system will be scalable to support multiple disciplines."
+    "Actual Outcomes": "Successfully implemented an end-to-end automated grading system that connects our API to GitGrade. The system now supports 14 client assignments, where students can write code and run pytest to receive automatic grading and feedback. Key achievements include:\n\n" +
+    "1. Automated Grading Pipeline:\n" +
+    "   - Students receive customized starter code through GitHub Classroom\n" +
+    "   - Pytest integration automatically collects code performance, test outcomes, and coding approach\n" +
+    "   - ChatGPT serves as the AI-powered grading engine, providing detailed feedback\n\n" +
+    "2. Comprehensive Data Collection:\n" +
+    "   - Student's code for quality and accuracy assessment\n" +
+    "   - Pytest file for standards verification\n" +
+    "   - Autograding config file for point value specification\n" +
+    "   - Terminal output for error and result tracking\n\n" +
+    "3. Student-Centric Feedback System:\n" +
+    "   - Specific technical feedback for code improvements\n" +
+    "   - General encouraging feedback to support learning\n" +
+    "   - Beginner-friendly explanations and terminology\n\n" +
+    "4. Flexible Submission Options:\n" +
+    "   - Direct pytest execution for immediate grading\n" +
+    "   - Traditional Git submission support\n" +
+    "   - Bonus points for Git usage to encourage learning\n\n" +
+    "5. Secure Architecture:\n" +
+    "   - Token-based authentication for grade updates\n" +
+    "   - Server-side user verification\n" +
+    "   - Protection against grade manipulation and identity spoofing\n\n" +
+    "The system has significantly improved the grading process, making it faster, clearer, and more personalized while enhancing student learning through real-time feedback."
   }
 }; 
